@@ -1,0 +1,67 @@
+/* Fontes */
+@font-face {
+	font-family: 'MinhaFonte';
+	src: url('../fonts/Roboto-Black.ttf') format('woff2'),
+		 url('../fonts/Roboto-Medium.ttf') format('woff'),
+		 url('../fonts/Roboto-Light.ttf') format('truetype');
+  }
+  
+  *{
+	font-family: 'MinhaFonte';
+  }
+  
+/* Conteiro estilizado */
+html {
+	cursor: url(../img/mata_mosca.png) 30 30, auto;
+}
+/* Backgroud config */
+body {
+	background-image: url(../img/bg.jpg);
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+/* Estilização do mosquito */
+.mosquito1 {
+	width: 50px;
+	height: 50px;
+}
+
+.mosquito2 {
+	width: 70px;
+	height: 70px;
+}
+
+.mosquito3 {
+	width: 90px;
+	height: 90px;
+}
+/*  Troca de lado do mosquito*/
+.ladoA {
+	transform: scaleX(1);
+}
+
+.ladoB {
+	transform: scaleX(-1);
+}
+/* Painel */
+.painel {
+	position: absolute;
+	width: 190px;
+	padding: 10px;
+	left: 0px;
+	bottom: 0px;
+	border-top:solid 1px #fff;
+	background-color: #fff;
+	opacity: 0.7;
+	border-radius: 0 10px 0 0;
+}
+
+.vidas {
+	float: left;
+}
+
+.cronometro {
+	float: left;
+	font-size: 20px;
+	font-weight: bold;
+}
