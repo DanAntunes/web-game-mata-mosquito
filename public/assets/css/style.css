@@ -1,9 +1,9 @@
 /* Fontes */
 @font-face {
 	font-family: 'MinhaFonte';
-	src: url('../fonts/Roboto-Black.ttf') format('woff2'),
-		 url('../fonts/Roboto-Medium.ttf') format('woff'),
-		 url('../fonts/Roboto-Light.ttf') format('truetype');
+	src: url('/src/fonts/Roboto-Black.ttf') format('woff2'),
+		 url('/src/fonts/Roboto-Medium.ttf') format('woff'),
+		 url('/src/fonts/Roboto-Light.ttf') format('truetype');
   }
   
   *{
