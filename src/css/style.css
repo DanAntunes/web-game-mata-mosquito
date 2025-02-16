@@ -13,11 +13,11 @@
   
 /* Conteiro estilizado */
 html {
-	cursor: url(../img/mata_mosca.png) 30 30, auto;
+	cursor: url(/public/assets/img/mata_mosca.png) 30 30, auto;
 }
 /* Backgroud config */
 body {
-	background-image: url(../img/bg.jpg);
+	background-image: url(/public/assets/img/bg.jpg);
 	background-repeat: no-repeat;
 	background-size: 100%;
 }
