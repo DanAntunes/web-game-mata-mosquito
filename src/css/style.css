@@ -7,9 +7,8 @@
   }
   
 *{
-	/* biome-ignore lint/a11y/useGenericFontNames: <explanation> */
 	font-family: 'MinhaFonte';
-  }
+}
   
 /* Conteiro estilizado */
 html {
