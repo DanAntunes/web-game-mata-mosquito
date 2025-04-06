@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="UTF-8">
+		<meta name="description" content="Jogo Mata-Mosquito desenvolvido em JavaScript">
+		<meta name="keywords" content="HTML, CSS, JavaScript">
+		<meta name="author" content="Danilo Antunes">
+		<!-- Title -->
+		<title>Mata-Mosquito - Jogo</title>
+		<!-- Stylesheet -->
+		<link rel="stylesheet" href="./src/css/style.css">
+	</head>
+	<body onresize="ajustaTamanhoPalcoJogo()">
+
+		<section class="painel">
+			<div class="vidas">
+				<img id="v1" src="./public/assets/img/coracao_cheio.png" />
+				<img id="v2" src="./public/assets/img/coracao_cheio.png" />
+				<img id="v3" src="./public/assets/img/coracao_cheio.png" />
+			</div>
+
+			<div class="cronometro">Tempo restante: <span id="cronometro"></span></div>
+		</section>
+
+		<script src="src/js/script.js" defer></script>
+		<script src="src/js/timer.js" defer></script>
+	</body>
+</html>
