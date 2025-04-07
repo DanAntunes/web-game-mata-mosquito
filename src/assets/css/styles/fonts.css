@@ -1,0 +1,7 @@
+/* Fontes */
+@font-face {
+	font-family: 'MinhaFonte', sans-serif;
+	src: url('../fonts/Roboto-Black.ttf') format('woff2'),
+		 url('../fonts/Roboto-Medium.ttf') format('woff'),
+		 url('../fonts/Roboto-Light.ttf') format('truetype');
+  }
