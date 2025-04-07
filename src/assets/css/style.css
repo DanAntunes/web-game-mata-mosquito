@@ -12,11 +12,11 @@
   
 /* Conteiro estilizado */
 html {
-	cursor: url(/public/assets/img/mata_mosca.png) 30 30, auto;
+	cursor: url(../img/cursor/mata_mosca.png) 30 30, auto;
 }
 /* Backgroud config */
 body {
-	background-image: url(/public/assets/img/bg.jpg);
+	background-image: url(../img/background/bg.jpg);
 	background-repeat: no-repeat;
 	background-size: 100%;
 }
@@ -67,4 +67,8 @@ a {
 	float: left;
 	font-size: 20px;
 	font-weight: bold;
+}
+
+.game-png {
+	width: 24.5em;
 }
