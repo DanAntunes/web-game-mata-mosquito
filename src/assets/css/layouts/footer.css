@@ -1,0 +1,25 @@
+footer {
+  padding: 0;
+  width: 100%;
+  margin: 0;
+}
+
+footer p {
+  font-size: 0.875rem;
+  text-align: center;
+  margin: 0;
+}
+
+footer p a {
+  text-decoration: none;
+}
+
+footer p a:hover {
+  color: #000000;
+  text-decoration: none;
+}
+
+/* Footer */
+.bg-footer {
+  background: rgba(14, 16, 31, 0.4);
+}
