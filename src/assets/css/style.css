@@ -1,25 +1,7 @@
-/* Fontes */
-@font-face {
-	font-family: 'MinhaFonte', sans-serif;
-	src: url('../fonts/Roboto-Black.ttf') format('woff2'),
-		 url('../fonts/Roboto-Medium.ttf') format('woff'),
-		 url('../fonts/Roboto-Light.ttf') format('truetype');
-  }
+@import url(./styles/reset.css);
+@import url(./layouts/footer.css);
+@import url(./layouts/header.css);
   
-*{
-	font-family: 'MinhaFonte', sans-serif;
-}
-  
-/* Conteiro estilizado */
-html {
-	cursor: url(../img/cursor/mata_mosca.png) 30 30, auto;
-}
-/* Backgroud config */
-body {
-	background-image: url(../img/background/bg.jpg);
-	background-repeat: no-repeat;
-	background-size: 100%;
-}
 a {
 	text-decoration: none;
 }
@@ -69,6 +51,4 @@ a {
 	font-weight: bold;
 }
 
-.game-png {
-	width: 24.5em;
-}
+
