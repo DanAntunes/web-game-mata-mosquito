@@ -1,0 +1,29 @@
+html, body {
+  height: 100%;
+  margin: 0;
+	cursor: url(../img/cursor/mata_mosca.png) 30 30, auto;
+}
+
+/* Estilo Base */
+body {
+  background-size: cover;
+  /* Suporte a flexbox em navegadores antigos */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100vh;
+  background-image: url(../img/background/bg.jpg);
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
+main {
+  /* Suporte para propriedade flex em navegadores legados */
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 0;
+  flex: 1 1 0;
+}
