@@ -6,6 +6,6 @@ function iniciarJogo() {
     return false
   }
 
-  window.location.href = `game.html?${nivel}`
+  window.location.href = `./src/assets/pages/app.html?${nivel}`
 
 }
