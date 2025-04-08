@@ -48,20 +48,24 @@
                 <section class="game-controls" role="region" aria-labelledby="nivelLabel">
                     <div class="my-2">
                         <label for="nivel" id="nivelLabel" class="form-label h4 text-light">Selecione o nível de dificuldade</label>
-                        <select class="form-select form-select-lg" 
-                                id="nivel"
-                                aria-describedby="nivelHelp"
-                                required>
+                        <div class="row">
+                         <div class="col-4 mx-auto justify-content-center">
+                          <select class="form-select form-select-lg" 
+                           id="nivel"
+                           aria-describedby="nivelHelp"
+                           required>
                             <option value="" selected disabled>Escolha um nível</option>
                             <option value="normal">Normal</option>
                             <option value="hard">Difícil</option>
                             <option value="johnwick">John Wick</option>
-                        </select>
+                          </select>
+                         </div>
+                        </div>
                         <div id="nivelHelp" class="form-text">O nível John Wick é extremamente desafiador!</div>
                     </div>
 
                     <button type="button" 
-                            class="btn btn-danger btn-lg px-5"
+                            class="btn btn-danger btn-lg px-5 mb-1"
                             onclick="iniciarJogo()"
                             role="button"
                             aria-label="Iniciar o jogo no nível selecionado">
