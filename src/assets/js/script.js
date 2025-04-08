@@ -1,120 +1,96 @@
-//Globais
-var altura = 0
-var largura = 0
-var vidas = 1
-var tempo = 15
+// game.js - Código unificado
 
-//nivel do game
-var criaMosquitoTempo = 1500
+/* Função para iniciar o jogo (originalmente em start.js) */
+function iniciarJogo() {
+  const nivel = document.getElementById('nivel').value
 
-var nivel = window.location.search
-nivel = nivel.replace('?', '')
+  if(nivel === '') {
+    alert('Selecione um nível para iniciar o jogo')
+    return false
+  }
 
-if(nivel === 'normal') {
-	//1500
-	criaMosquitoTempo = 1500
-} else if(nivel === 'hard') {
-	//1000
-	criaMosquitoTempo = 1000
-} else if(nivel === 'johnwick') {
-	//750
-	criaMosquitoTempo = 750
+  window.location.href = `./src/assets/pages/app.html?${nivel}`
 }
 
+/* Lógica principal do jogo (originalmente em script.js + timer.js) */
+
+// Variáveis globais
+let altura = 0
+let largura = 0
+let vidas = 1
+let tempo = 15
+let criaMosquitoTempo = 1500
+
+// Configurar nível do jogo
+const nivelParam = window.location.search.replace('?', '')
+
+switch(nivelParam) {
+  case 'normal':
+    criaMosquitoTempo = 1500
+    break
+  case 'hard':
+    criaMosquitoTempo = 1000
+    break
+  case 'johnwick':
+    criaMosquitoTempo = 750
+    break
+}
+
+// Configurar tamanho do palco
 function ajustaTamanhoPalcoJogo() {
-	altura = window.innerHeight
-	largura = window.innerWidth
-
-	console.log(largura, altura)
+  altura = window.innerHeight
+  largura = window.innerWidth
 }
-
 ajustaTamanhoPalcoJogo()
 
-//cronometro win or lose
-var cronometro = setInterval(function() {
+// Sistema de tempo e mosquitos
+let cronometro = setInterval(() => {
+  tempo -= 1
+  document.getElementById('cronometro').innerHTML = tempo
 
-	tempo -= 1
-
-	if(tempo < 0) {
-		clearInterval(cronometro)
-		clearInterval(criaMosca)
-		window.location.href = 'winner.html'
-	} else {
-		document.getElementById('cronometro').innerHTML = tempo
-	}
-	
+  if(tempo < 0) {
+    clearInterval(cronometro)
+    clearInterval(criaMosca)
+    window.location.href = 'winner.html'
+  }
 }, 1000)
 
-//criando posições randônmicas
+let criaMosca = setInterval(() => {
+  posicaoRandomica()
+}, criaMosquitoTempo)
+
+// Lógica dos mosquitos
 function posicaoRandomica() {
+  if(document.getElementById('mosquito')) {
+    document.getElementById('mosquito').remove()
+    
+    if(vidas > 3) {
+      window.location.href = 'game_over.html'
+    } else {
+      document.getElementById(`v${vidas}`).src = "./public/assets/img/coracao_vazio.png"
+      vidas++
+    }
+  }
 
+  const posicaoX = Math.max(Math.floor(Math.random() * largura) - 90, 0)
+  const posicaoY = Math.max(Math.floor(Math.random() * altura) - 90, 0)
 
-	//remover o mosquito anterior (caso exista)
-	if(document.getElementById('mosquito')) {
-		document.getElementById('mosquito').remove()
+  const mosquito = document.createElement('img')
+  mosquito.src = './public/assets/img/mosquito.png'
+  mosquito.className = `${tamanhoAleatorio()} ${ladoAleatorio()}`
+  mosquito.style.cssText = `left: ${posicaoX}px; top: ${posicaoY}px; position: absolute;`
+  mosquito.id = 'mosquito'
+  mosquito.onclick = () => mosquito.remove()
 
-		//console.log('elemento selecionado foi: v' + vidas)
-		if(vidas > 3) {
-
-			window.location.href = 'game_over.html'
-		} else {
-			document.getElementById('v' + vidas).src = "./public/assets/img/coracao_vazio.png"
-
-			vidas++
-		}
-	}
-	//ajustar tamanho do palco do jogo para caber na janela do navegador.
-	var posicaoX = Math.floor(Math.random() * largura) - 90
-	var posicaoY = Math.floor(Math.random() * altura) - 90
-
-	//controle operador ternario
-	posicaoX = posicaoX < 0 ? 0 : posicaoX
-	posicaoY = posicaoY < 0 ? 0 : posicaoY
-
-	console.log(posicaoX, posicaoY)
-
-	//criar o elemento html
-	var mosquito = document.createElement('img')
-	mosquito.src = './public/assets/img/mosquito.png'
-	mosquito.className = tamanhoAleatorio() + ' ' + ladoAleatorio()
-	mosquito.style.left = posicaoX + 'px'
-	mosquito.style.top = posicaoY + 'px'
-	mosquito.style.position = 'absolute'
-	mosquito.id = 'mosquito'
-	//interação 
-	mosquito.onclick = function() {
-		this.remove()
-	}
-
-	document.body.appendChild(mosquito)
-
+  document.body.appendChild(mosquito)
 }
-//função para tamanho randômico do mob
+
+// Funções auxiliares
 function tamanhoAleatorio() {
-	var classe = Math.floor(Math.random() * 3)
-	
-	switch(classe) {
-		case 0:
-			return 'mosquito1'
-		
-		case 1:
-			return 'mosquito2'
-
-		case 2:
-			return 'mosquito3'
-	}
+  const sizes = ['mosquito1', 'mosquito2', 'mosquito3']
+  return sizes[Math.floor(Math.random() * 3)]
 }
-//mudar orientação da imagem lado a/b
+
 function ladoAleatorio() {
-	var classe = Math.floor(Math.random() * 2)
-	
-	switch(classe) {
-		case 0:
-			return 'ladoA'
-		
-		case 1:
-			return 'ladoB'
-
-	}
+  return Math.random() < 0.5 ? 'ladoA' : 'ladoB'
 }
-
