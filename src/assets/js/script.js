@@ -5,9 +5,9 @@ let vidas = 1
 let tempo = 15
 
 //nivel do game
-var criaMosquitoTempo = 1500
+let criaMosquitoTempo = 1500
 
-var nivel = window.location.search
+let nivel = window.location.search
 nivel = nivel.replace('?', '')
 
 if(nivel === 'normal') {
@@ -31,14 +31,14 @@ function ajustaTamanhoPalcoJogo() {
 ajustaTamanhoPalcoJogo()
 
 //cronometro win or lose
-var cronometro = setInterval(function() {
+const cronometro = setInterval(() => {
 
 	tempo -= 1
 
 	if(tempo < 0) {
 		clearInterval(cronometro)
 		clearInterval(criaMosca)
-		window.location.href = 'winner.html'
+		window.location.href = '../pages/winner.html'
 	} else {
 		document.getElementById('cronometro').innerHTML = tempo
 	}
@@ -56,16 +56,16 @@ function posicaoRandomica() {
 		//console.log('elemento selecionado foi: v' + vidas)
 		if(vidas > 3) {
 
-			window.location.href = 'game_over.html'
+			window.location.href = '../pages/game_over.html'
 		} else {
-			document.getElementById('v' + vidas).src = "./public/assets/img/coracao_vazio.png"
+			document.getElementById(`v${vidas}`).src = "../image/painel/coracao_vazio.png"
 
 			vidas++
 		}
 	}
 	//ajustar tamanho do palco do jogo para caber na janela do navegador.
-	var posicaoX = Math.floor(Math.random() * largura) - 90
-	var posicaoY = Math.floor(Math.random() * altura) - 90
+	let posicaoX = Math.floor(Math.random() * largura) - 90
+	let posicaoY = Math.floor(Math.random() * altura) - 90
 
 	//controle operador ternario
 	posicaoX = posicaoX < 0 ? 0 : posicaoX
@@ -74,11 +74,11 @@ function posicaoRandomica() {
 	console.log(posicaoX, posicaoY)
 
 	//criar o elemento html
-	var mosquito = document.createElement('img')
-	mosquito.src = './public/assets/img/mosquito.png'
-	mosquito.className = tamanhoAleatorio() + ' ' + ladoAleatorio()
-	mosquito.style.left = posicaoX + 'px'
-	mosquito.style.top = posicaoY + 'px'
+	const mosquito = document.createElement('img')
+	mosquito.src = '../image/enemy/mosquito.png'
+	mosquito.className = `${tamanhoAleatorio()} ${ladoAleatorio()}`
+	mosquito.style.left = `${posicaoX}px`
+	mosquito.style.top = `${posicaoY}px`
 	mosquito.style.position = 'absolute'
 	mosquito.id = 'mosquito'
 	//interação 
@@ -91,7 +91,7 @@ function posicaoRandomica() {
 }
 //função para tamanho randômico do mob
 function tamanhoAleatorio() {
-	var classe = Math.floor(Math.random() * 3)
+	const classe = Math.floor(Math.random() * 3)
 	
 	switch(classe) {
 		case 0:
@@ -106,7 +106,7 @@ function tamanhoAleatorio() {
 }
 //mudar orientação da imagem lado a/b
 function ladoAleatorio() {
-	var classe = Math.floor(Math.random() * 2)
+	const classe = Math.floor(Math.random() * 2)
 	
 	switch(classe) {
 		case 0:
